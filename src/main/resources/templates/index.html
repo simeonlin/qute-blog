@@ -1,0 +1,22 @@
+{@ch.hftm.model.Entry entry}
+{#include template.html}
+{#contents}
+{#for entry in entries}
+    <article class="container w-full mx-auto pt-20">
+        <h1 class="text-4xl">{entry.title}</h1>
+        <p>by {entry.author}</p>
+        <p class="my-2">{entry.content}</p>
+        <div class="block">
+            <p>
+                Kommentare: 3
+                <button
+                    class="float-right bg-transparent border border-grey text-xs text-grey font-bold py-2 px-4 rounded-full">Lesen</button>
+            </p>
+        </div>
+
+        <!--Divider-->
+        <hr class="border-b-2 border-grey-light my-10 mx-4">
+    </article>
+{/for}
+{/contents}
+{/include}
