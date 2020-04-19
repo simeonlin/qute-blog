@@ -1,11 +1,11 @@
 # vs-blog project
 ## TODO:
 - Sicherheit vertiefen:
-https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage
-https://planet.jboss.org/post/jax_rs_and_httponly_flag_in_cookies
-- Expired JWT in Cookie braucht saubere meldung und entfernung von Cookie. Ev. abhängig von folgendem Issue:
-https://github.com/quarkusio/quarkus/issues/7502
--Ev docker-compose prüfen/testen
+https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage  
+https://planet.jboss.org/post/jax_rs_and_httponly_flag_in_cookies  
+- Expired JWT in Cookie braucht saubere meldung und entfernung von Cookie. Ev. abhängig von folgendem Issue:  
+https://github.com/quarkusio/quarkus/issues/7502  
+-Ev docker-compose prüfen/testen  
 
 ## Applikation starten
 ```
