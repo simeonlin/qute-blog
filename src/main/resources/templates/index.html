@@ -1,11 +1,11 @@
 {@ch.hftm.model.Entry entry}
 {#include template.html}
 {#contents}
-<div class="reloader container w-full mx-auto pt-20">
+<div class="reloader container pt-20">
     <p>{lastreload}</p>
 </div>
 {#for entry in entries}
-    <article class="container w-full mx-auto pt-20">
+    <article class="container pt-20">
         <h1 class="text-4xl">{entry.title}</h1>
         <p>by {entry.author}</p>
         <p class="my-2">{entry.content}</p>

@@ -17,23 +17,41 @@
         .logo {
             font-family: 'DM Serif Text', serif;
         }
+
+        .active{
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <header class="sticky top-0" style="background-color: #f8f8f8;">
-        <div class="container px-20 py-5 flex flex-row items-center">
-            <h1 class="logo text-2xl"><a href="index.html">VS Blog</a></h1>
-            <nav class="px-20">
-                <ul>
-                    <li class="inline-block px-4"><a href="about" class="hover:text-blue-800">About</a></li>
-                    <li class="inline-block px-4">{#if inject:loginInfo.loggedIn}<a href="logout" class="hover:text-blue-800">Logout</a>{#else}<a href="login" class="hover:text-blue-800">Login</a>{/if}</li>
-                </ul>
-            </nav>
+        <div class="container w-full mx-auto px-6 py-4">
+        <nav class="flex items-center justify-between flex-wrap">
+            <div class="flex items-center flex-shrink-0 mr-6">
+                <h1 class="logo text-2xl"><a href="index.html">VS Blog</a></h1>
+            </div>
+            <div class="block lg:hidden">
+              <button id="hamburgerbtn" class="flex items-center px-3 py-2 border rounded hover:border-gray-600">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+              </button>
+            </div>
+            <div id="mobileMenu" class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
+              <div class="lg:flex-grow">
+                <a href="about" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
+                {#if inject:loginInfo.loggedIn}<a href="logout" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="login" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
+              </div>
+              <div>
+                <input class="shadow appearance-none border rounded py-2 my-2 px-2 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Suchen">
+              </div>
+            </div>
+          </nav>
         </div>
     </header>
     <div class="h-64 bg-cover" style="background-image: url('assets/feature.jpg')"></div>
-    {#insert contents}No contents!{/}
+    <div class="container w-full mx-auto px-6">
+        {#insert contents}No contents!{/}
+    </div>
 
     <footer style="background-color: #3b3b3b;" class="mt-10 border-t border-grey-light">
         <div class="container max-w-md mx-auto flex py-8">
@@ -42,11 +60,17 @@
                     © 2020 by Simeon
                 </p>
             </div>
-
-
-
         </div>
     </footer>
+    <script>
+        let hamburger = document.getElementById('hamburgerbtn');
+    
+        let mobileMenu = document.getElementById('mobileMenu');
+    
+        hamburger.addEventListener('click', function(){
+            mobileMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
