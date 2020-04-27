@@ -1,8 +1,6 @@
 package ch.hftm.vsblog;
 
 import java.net.URI;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.annotation.security.RolesAllowed;
@@ -14,7 +12,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
