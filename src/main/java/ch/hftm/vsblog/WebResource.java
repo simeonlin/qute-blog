@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -27,6 +28,9 @@ import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import ch.hftm.model.Entry;
 import ch.hftm.model.LoginForm;
+import ch.hftm.model.PostForm;
+import io.quarkus.panache.common.Sort;
+import io.quarkus.panache.common.Sort.Direction;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -42,6 +46,9 @@ public class WebResource {
     Template login;
 
     @Inject
+    Template post;
+
+    @Inject
     Template about;
 
     @GET
@@ -49,7 +56,36 @@ public class WebResource {
     public TemplateInstance getIndex() {
         System.out.println("INDEX");
         LocalDateTime actDate = LocalDateTime.now();
-        return index.data("entries", Entry.findAll().list()).data("lastreload", actDate);
+        return index.data("entries", Entry.listAll(Sort.by("id", Direction.Descending))).data("lastreload", actDate);
+    }
+
+    @GET
+    @Path("post")
+    public TemplateInstance getPost() {
+        return post.instance();
+    }
+
+    @POST
+    @Path("post")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @RolesAllowed("admin")
+    @Transactional
+    public Response post(@MultipartForm PostForm postForm, @Context UriInfo uriInfo, @Context HttpHeaders headers, @Context SecurityContext ctx) {
+        if(postForm.content.length() > 5 && postForm.title.length() > 5) {
+            var e = new Entry();
+            e.title = postForm.title;
+            e.content = postForm.content;
+            e.author = ctx.getUserPrincipal().getName();
+            e.persist();
+
+            final URI originalLocation = uriInfo.getRequestUri();
+            final URI redirect = UriBuilder.fromPath(originalLocation.getPath() + "/../index.html").build();
+            return Response.seeOther(redirect).build();
+        } else {
+            postForm.errorMessage = "Gib mindestens 5 Zeichen ein für Titel und Inhalt.";
+            TemplateInstance site =  post.data("postForm", postForm);
+            return Response.ok(site).build();
+        }
     }
 
     @GET
@@ -87,8 +123,6 @@ public class WebResource {
 
     @GET
     @Path("about")
-    @RolesAllowed("admin")
-    //@PermitAll
     public TemplateInstance getAbout(@Context SecurityContext ctx) {
         return about.instance();
     }

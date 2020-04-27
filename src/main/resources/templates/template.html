@@ -38,6 +38,7 @@
             </div>
             <div id="mobileMenu" class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
               <div class="lg:flex-grow">
+                {#if inject:loginInfo.loggedIn}<a href="post" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Schreiben</a>{/if}
                 <a href="about" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
                 {#if inject:loginInfo.loggedIn}<a href="logout" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="login" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
               </div>
@@ -54,20 +55,18 @@
     </div>
 
     <footer style="background-color: #3b3b3b;" class="mt-10 border-t border-grey-light">
-        <div class="container max-w-md mx-auto flex py-8">
-            <div class="w-full mx-auto flex flex-wrap">
-                <p style="color: #f8f8f8;" class="py-4 text-grey-dark text-sm">
+            <div class="container w-full mx-auto px-6 py-8">
+                <p style="color: #f8f8f8; text-align: right;" class="py-4 text-grey-dark text-sm">
                     © 2020 by Simeon
                 </p>
-            </div>
         </div>
     </footer>
     <script>
         let hamburger = document.getElementById('hamburgerbtn');
-    
+
         let mobileMenu = document.getElementById('mobileMenu');
-    
-        hamburger.addEventListener('click', function(){
+
+        hamburger.addEventListener('click', function () {
             mobileMenu.classList.toggle('active');
         });
     </script>
