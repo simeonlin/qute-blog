@@ -2,6 +2,9 @@ package ch.hftm.vsblog;
 
 import java.net.URI;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -44,7 +47,9 @@ public class WebResource {
     @GET
     @Path("{a: |index.html}")
     public TemplateInstance getIndex() {
-        return index.data("entries", Entry.findAll().list());
+        System.out.println("INDEX");
+        LocalDateTime actDate = LocalDateTime.now();
+        return index.data("entries", Entry.findAll().list()).data("lastreload", actDate);
     }
 
     @GET
@@ -78,11 +83,6 @@ public class WebResource {
         final URI originalLocation = uriInfo.getRequestUri();
         final URI redirect = UriBuilder.fromPath(originalLocation.getPath() + "/../index.html").build();
         return Response.temporaryRedirect(redirect).cookie(removeCookie).build();
-
-        //return Response.temporaryRedirect(new URI("index")).build();
-
-        // TemplateInstance site = index.data("entries", Entry.findAll().list());
-        // return Response.ok(site).cookie(removeCookie).build();
     }
 
     @GET

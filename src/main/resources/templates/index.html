@@ -1,6 +1,9 @@
 {@ch.hftm.model.Entry entry}
 {#include template.html}
 {#contents}
+<div class="reloader container w-full mx-auto pt-20">
+    <p>{lastreload}</p>
+</div>
 {#for entry in entries}
     <article class="container w-full mx-auto pt-20">
         <h1 class="text-4xl">{entry.title}</h1>
@@ -18,5 +21,12 @@
         <hr class="border-b-2 border-grey-light my-10 mx-4">
     </article>
 {/for}
+<script>
+    up.on('my:reload', function () {
+        console.log("Reload!");
+        up.reload('.reloader');
+    })
+    setInterval(function () { up.emit('my:reload'); }, 5000);
+</script>
 {/contents}
 {/include}
