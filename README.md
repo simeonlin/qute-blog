@@ -8,11 +8,17 @@ https://planet.jboss.org/post/jax_rs_and_httponly_flag_in_cookies
 - Expired JWT in Cookie braucht saubere meldung und entfernung von Cookie. Ev. abhängig von folgendem Issue:  
 https://github.com/quarkusio/quarkus/issues/7502  
 
-- Ev docker-compose prüfen/testen  
 
-## Applikation starten
+## Applikation in Dev-Mode starten
 ```
 docker run --name vsblog-mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=vs4tw -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=dbuser -e MYSQL_DATABASE=vsblog -d mysql:5.7.28
 ./mvnw quarkus:dev
 ```
 http://localhost:8080
+
+## Applikation mit docker-compose starten
+
+    mvnw clean package
+    docker-compose up --build
+
+http://localhost

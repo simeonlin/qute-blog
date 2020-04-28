@@ -51,13 +51,14 @@ public class WebResource {
     @GET
     @Path("{a: |index.html}")
     public TemplateInstance getIndex() {
-        System.out.println("INDEX");
         LocalDateTime actDate = LocalDateTime.now();
+        System.out.println("INDEX loaded: " +actDate);
         return index.data("entries", Entry.listAll(Sort.by("id", Direction.Descending))).data("lastreload", actDate);
     }
 
     @GET
     @Path("post")
+    @RolesAllowed("admin")
     public TemplateInstance getPost() {
         return post.instance();
     }

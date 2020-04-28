@@ -3,8 +3,8 @@ version: '3.3'
 services:
   vsblog-mysql:
     image: mysql:5.7.28
-    volumes:
-      - ./container/vs-mysql-db:/var/lib/mysql
+    #volumes:
+    #  - ./container/vs-mysql-db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: vs4tw
       MYSQL_DATABASE: vsblog
@@ -18,4 +18,4 @@ services:
     ports:
       - 80:8080
     depends_on:
-      - vs-mysql
+      - vsblog-mysql
