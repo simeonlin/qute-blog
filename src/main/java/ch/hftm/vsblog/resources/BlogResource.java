@@ -1,4 +1,4 @@
-package ch.hftm.vsblog;
+package ch.hftm.vsblog.resources;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 
-import ch.hftm.model.Entry;
+import ch.hftm.vsblog.model.Entry;
 
 @Path("/entries")
 @Produces(MediaType.APPLICATION_JSON)

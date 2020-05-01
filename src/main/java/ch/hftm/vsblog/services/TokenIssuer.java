@@ -1,4 +1,4 @@
-package ch.hftm.vsblog;
+package ch.hftm.vsblog.services;
 
 import java.util.Date;
 

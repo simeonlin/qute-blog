@@ -1,4 +1,4 @@
-package ch.hftm.model;
+package ch.hftm.vsblog.web;
 
 import javax.ws.rs.FormParam;
 

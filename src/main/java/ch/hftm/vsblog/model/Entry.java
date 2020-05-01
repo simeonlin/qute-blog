@@ -1,4 +1,4 @@
-package ch.hftm.model;
+package ch.hftm.vsblog.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

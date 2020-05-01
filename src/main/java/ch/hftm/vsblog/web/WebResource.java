@@ -1,4 +1,4 @@
-package ch.hftm.vsblog;
+package ch.hftm.vsblog.web;
 
 import java.net.URI;
 import java.time.LocalDateTime;
@@ -23,9 +23,8 @@ import javax.ws.rs.core.UriInfo;
 
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
-import ch.hftm.model.Entry;
-import ch.hftm.model.LoginForm;
-import ch.hftm.model.PostForm;
+import ch.hftm.vsblog.services.TokenIssuer;
+import ch.hftm.vsblog.model.Entry;
 import io.quarkus.panache.common.Sort;
 import io.quarkus.panache.common.Sort.Direction;
 import io.quarkus.qute.Template;

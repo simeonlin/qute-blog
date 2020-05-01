@@ -1,10 +1,10 @@
-package ch.hftm.vsblog;
+package ch.hftm.vsblog.services;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
 import javax.transaction.Transactional;
 
-import ch.hftm.model.Entry;
+import ch.hftm.vsblog.model.Entry;
 import io.quarkus.runtime.StartupEvent;
 
 @Dependent

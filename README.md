@@ -1,6 +1,9 @@
 # vs-blog project
 ## TODO:  
 
+- Nach Login/Post sind JS-Snippets auf Index nicht aktiv  
+- Umlaute von DB
+
 - Sicherheit vertiefen:
 https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage  
 https://planet.jboss.org/post/jax_rs_and_httponly_flag_in_cookies  
