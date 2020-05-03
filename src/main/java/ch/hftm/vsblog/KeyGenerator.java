@@ -34,22 +34,6 @@ public class KeyGenerator {
         out.write(encoder.encodeToString(publicKey.getEncoded()));
         out.write("\n-----END RSA PUBLIC KEY-----\n");
         out.close();
-
-        // byte[] publicKeyByte = publicKey.getEncoded();
-        // FileOutputStream keyfos = new FileOutputStream("src/main/resources/META-INF/public_key.pem");
-        // keyfos.write(publicKeyByte);
-        // keyfos.close();
-
-        // byte[] privateKeyByte = privateKey.getEncoded();
-        // keyfos = new FileOutputStream("src/main/resources/META-INF/private_key.pem");
-        // keyfos.write(privateKeyByte);
-        // keyfos.close();
-
-        System.err.println("Private key format: " + privateKey.getFormat());
-// prints "Private key format: PKCS#8" on my machine
-
-System.err.println("Public key format: " + publicKey.getFormat());
-// prints "Public key format: X.509" on my machine
     }
 
 }
