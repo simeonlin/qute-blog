@@ -48,7 +48,7 @@ public class LoginController {
             final URI redirect = UriBuilder.fromPath(originalLocation.getPath() + "/../index.html").build();
             return Response.seeOther(redirect).cookie(cookie).build();
         } else {
-            loginForm.errorMessage = "Benutzer/Passwort-Kombination passt leider nicht.";
+            loginForm.errorMessage = "User/password-combination ist wrong.";
             TemplateInstance site =  login.data("loginForm", loginForm);
             return Response.status(422).entity(site).build();
         }

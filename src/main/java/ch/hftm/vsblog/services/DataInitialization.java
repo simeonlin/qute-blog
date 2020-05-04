@@ -14,13 +14,13 @@ public class DataInitialization {
     public void intializeData(@Observes StartupEvent event) {
         if (Entry.listAll().size() < 1) {
             var e1 = new Entry();
-            e1.title = "Moderne Java Backend-Systeme mit Quarkus";
+            e1.title = "Modern Java Backend with Quarkus";
             e1.author = "Simeon";
             e1.content = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, ...";
             e1.persist();
 
             var e2 = new Entry();
-            e2.title = "Java-REST-API auf Azure deployen";
+            e2.title = "Deploying Java-REST-API on Azure";
             e2.author = "Simeon";
             e2.content = "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam ...";
             e2.persist();

@@ -10,6 +10,6 @@ import io.quarkus.security.UnauthorizedException;
 public class ForbiddenExceptionMapper implements ExceptionMapper<UnauthorizedException> {
     @Override
     public Response toResponse(UnauthorizedException exception) {
-        return Response.status(200).entity("Zutritt verboten :-)").build();
+        return Response.status(200).entity("Unauthorized Access!").build();
     }
 }

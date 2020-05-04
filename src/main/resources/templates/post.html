@@ -2,24 +2,24 @@
 {#include template.html}
 {#contents}
 <div class="postdiv container pt-20">
-    <h1 class="text-4xl">Neuer Posts</h1>
-    <p class="my-2">Los gehts.. schreib was!</p>
+    <h1 class="text-4xl">New post</h1>
+    <p class="my-2">Let's go! Write your wonderfull new blog-post.</p>
     <form action="post" method="POST" name="postForm" up-target=".postdiv">
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="titel">
-                Titel
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+                Title
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="title" name="title" type="text" placeholder="Titel" value="{loginForm.username}" up-validate required autofocus>
+                id="title" name="title" type="text" placeholder="Title" value="{postForm.title}" up-validate required autofocus>
         </div>
         <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                Inhalt
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
+                Content
             </label>
-            <input
+            <textarea rows="5"
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="content" name="content" type="text" placeholder="Inhalt" required>
+                id="content" name="content" placeholder="Content" required>
         </div>
         {#if postForm.errorMessage != null}
             <div>
@@ -29,7 +29,7 @@
         <div class="flex items-center justify-between">
             <button type="submit"
                 class="float-right bg-transparent border border-grey text-xs text-grey font-bold py-2 px-4 rounded-full">
-                Veröffentlichen
+                Save
             </button>
         </div>
     </form>

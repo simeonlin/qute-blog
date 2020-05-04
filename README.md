@@ -1,7 +1,6 @@
 # vs-blog project
 ## TODO:  
 
-- Nach Login/Post sind JS-Snippets auf Index nicht aktiv  
 - Umlaute von DB
 
 - Sicherheit vertiefen:

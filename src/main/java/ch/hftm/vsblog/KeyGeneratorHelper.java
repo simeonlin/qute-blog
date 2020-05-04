@@ -10,7 +10,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Base64;
 
-public class KeyGenerator {
+public class KeyGeneratorHelper {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");

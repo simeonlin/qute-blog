@@ -60,7 +60,7 @@ public class PostController {
             final URI redirect = UriBuilder.fromPath(originalLocation.getPath() + "/../index.html").build();
             return Response.seeOther(redirect).build();
         } else {
-            postForm.errorMessage = "Gib mindestens 5 Zeichen ein für Titel und Inhalt.";
+            postForm.errorMessage = "Minimum 5 Chars are required.";
             TemplateInstance site =  post.data("postForm", postForm);
             return Response.ok(site).build();
         }
