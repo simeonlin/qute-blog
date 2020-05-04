@@ -39,9 +39,8 @@ public class IndexController {
         } else {
             entries = Entry.list("title LIKE ?1 OR content LIKE ?1", Sort.by("id", Direction.Descending),"%"+searchString+"%");
         }
-        
-        LocalDateTime actDate = LocalDateTime.now();
-        return index.data("entries", entries).data("lastreload", actDate);
+
+        return index.data("entries", entries);
     }
 
     @GET

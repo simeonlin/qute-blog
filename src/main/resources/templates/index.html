@@ -1,9 +1,6 @@
 {@ch.hftm.vsblog.model.Entry entry}
 {#include template.html}
 {#contents}
-<div class="reloader container pt-20">
-    <p>{lastreload}</p>
-</div>
 {#for entry in entries}
     <article class="container pt-20">
         <h1 class="text-4xl">{entry.title}</h1>
@@ -22,19 +19,4 @@
     </article>
 {/for}
 {/contents}
-{#scripts}
-    up.compiler('body', function() {
-        console.log("COMPILER: Reload");
-        function reload() {
-            console.log("Reload!");
-            up.reload('.reloader');
-        }
-
-        setInterval(reload, 5000)
-
-        return function() {
-            clearInterval(reload)
-        };
-    });
-{/scripts}
 {/include}
