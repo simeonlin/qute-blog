@@ -38,7 +38,7 @@
             </div>
             <div id="mobileMenu" class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
               <div class="lg:flex-grow">
-                {#if inject:loginInfo.loggedIn}<a href="post" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Schreiben</a>{/if}
+                {#if inject:loginInfo.loggedIn}<a href="post" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Write</a>{/if}
                 <a href="about" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
                 {#if inject:loginInfo.loggedIn}<a href="logout" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="login" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
               </div>
