@@ -21,12 +21,20 @@
         <hr class="border-b-2 border-grey-light my-10 mx-4">
     </article>
 {/for}
-<script>
-    up.on('my:reload', function () {
-        console.log("Reload!");
-        up.reload('.reloader');
-    })
-    setInterval(function () { up.emit('my:reload'); }, 5000);
-</script>
 {/contents}
+{#scripts}
+    up.compiler('body', function() {
+        console.log("COMPILER: Reload");
+        function reload() {
+            console.log("Reload!");
+            up.reload('.reloader');
+        }
+
+        setInterval(reload, 5000)
+
+        return function() {
+            clearInterval(reload)
+        };
+    });
+{/scripts}
 {/include}

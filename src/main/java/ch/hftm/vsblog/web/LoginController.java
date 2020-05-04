@@ -50,7 +50,7 @@ public class LoginController {
         } else {
             loginForm.errorMessage = "Benutzer/Passwort-Kombination passt leider nicht.";
             TemplateInstance site =  login.data("loginForm", loginForm);
-            return Response.ok(site).build();
+            return Response.status(422).entity(site).build();
         }
     }
 

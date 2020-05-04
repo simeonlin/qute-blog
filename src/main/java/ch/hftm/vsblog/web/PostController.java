@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -45,7 +46,9 @@ public class PostController {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @RolesAllowed("admin")
     @Transactional
-    public Response post(@MultipartForm PostForm postForm, @Context UriInfo uriInfo, @Context HttpHeaders headers, @Context SecurityContext ctx) {
+    public Response post(@MultipartForm PostForm postForm,  @HeaderParam("X-Up-Validate") String validate, @Context UriInfo uriInfo, @Context HttpHeaders headers, @Context SecurityContext ctx) {
+        if (validate == "username") {
+        }
         if(postForm.content.length() > 5 && postForm.title.length() > 5) {
             var e = new Entry();
             e.title = postForm.title;

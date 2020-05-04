@@ -33,17 +33,14 @@ public class IndexController {
     @GET
     @Path("{a: |index.html}")
     public TemplateInstance getIndex(@QueryParam("searchString") String searchString) {
-        LocalDateTime actDate = LocalDateTime.now();
-        System.out.println("INDEX loaded: " +actDate);
         List<Entry> entries;
-
         if(searchString == null || searchString.isEmpty()) {
             entries = Entry.listAll(Sort.by("id", Direction.Descending));
         } else {
             entries = Entry.list("title LIKE ?1 OR content LIKE ?1", Sort.by("id", Direction.Descending),"%"+searchString+"%");
         }
         
-
+        LocalDateTime actDate = LocalDateTime.now();
         return index.data("entries", entries).data("lastreload", actDate);
     }
 
