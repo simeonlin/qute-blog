@@ -43,14 +43,16 @@
                 {#if inject:loginInfo.loggedIn}<a href="logout" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="login" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
               </div>
               <div>
-                <input class="shadow appearance-none border rounded py-2 my-2 px-2 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Suchen">
+                <form method="GET" action="/index.html" up-target=".main-content" up-autosubmit>
+                  <input type="search" name="searchString" class="shadow appearance-none border rounded py-2 my-2 px-2 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Suchen">
+                </form>
               </div>
             </div>
           </nav>
         </div>
     </header>
     <div class="h-64 bg-cover" style="background-image: url('assets/feature.jpg')"></div>
-    <div class="container w-full mx-auto px-6">
+    <div class="main-content container w-full mx-auto px-6">
         {#insert contents}No contents!{/}
     </div>
 
