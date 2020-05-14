@@ -1,26 +1,31 @@
-# vs-blog project
-## TODO:  
+# Simple Blog Showcase with Quarkus Qute
+![](example.gif)
 
-- Umlaute von DB
+## Including
+- Responsive layout with Tailwind CSS
+- Optimized UX with Unpoly (for partial page-loads)
+- Authentication and authorization with a JWT-session-token
 
-- Sicherheit vertiefen:
-https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage  
-https://planet.jboss.org/post/jax_rs_and_httponly_flag_in_cookies  
+## Open Topics:  
+- [ ] Optimization of form-validation.
+- [ ] Using Unpoly and Tailwind CSS via webjars instead of CDN?
+- [ ] Expired JWT is not removed from Cookies. (Waiting for fix of Quarkus-Issue: https://github.com/quarkusio/quarkus/issues/7502)
 
-- Expired JWT in Cookie braucht saubere meldung und entfernung von Cookie. Ev. abhängig von folgendem Issue:  
-https://github.com/quarkusio/quarkus/issues/7502  
+## Setup of the Keys for the JWT Part
+To test the application you need a key-pair for the authentification with the JWT-session-token.
+For this you can for example once Start the KeyGeneratorHelper-Class.
 
-
-## Applikation in Dev-Mode starten
+## Start in Dev-Mode
+To get the app running you need a MYSQL-Database. You can 
 ```
-docker run --name vsblog-mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=vs4tw -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=dbuser -e MYSQL_DATABASE=vsblog -d mysql:5.7.28
+docker run --name qute-blog-mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=vs4tw -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=dbuser -e MYSQL_DATABASE=qute-blog -d mysql:5.7.28
 ./mvnw quarkus:dev
 ```
 http://localhost:8080
 
-## Applikation mit docker-compose starten
+## Or start with docker-compose
 
-    mvnw clean package
+    ./mvnw clean package
     docker-compose up --build
 
 http://localhost

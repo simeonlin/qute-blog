@@ -1,21 +1,19 @@
 version: '3.3'
 
 services:
-  vsblog-mysql:
+  qute-blog-mysql:
     image: mysql:5.7.28
-    #volumes:
-    #  - ./container/vs-mysql-db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: vs4tw
-      MYSQL_DATABASE: vsblog
+      MYSQL_DATABASE: qute-blog
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: dbuser
 
-  vsblog:
+  qute-blog:
     build:
       context: .
       dockerfile: ./src/main/docker/Dockerfile.jvm
     ports:
       - 80:8080
     depends_on:
-      - vsblog-mysql
+      - qute-blog-mysql
