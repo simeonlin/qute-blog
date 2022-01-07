@@ -42,6 +42,7 @@ public class LoginController {
     @Path("login")
     public Response login(@MultipartForm LoginForm loginForm, @Context UriInfo uriInfo, @Context HttpHeaders headers) {
         if(loginForm.username.equals("admin") && loginForm.password.equals("admin")) {
+            // Create a httpOnly-Cookie with the JWT
             NewCookie cookie = new NewCookie("Authorization", TokenIssuer.generateToken(loginForm.username), null, null, null, -1, false, true);
 
             final URI originalLocation = uriInfo.getRequestUri();
