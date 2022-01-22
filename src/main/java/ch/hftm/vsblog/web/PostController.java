@@ -38,7 +38,8 @@ public class PostController {
     @Path("post")
     @RolesAllowed("admin")
     public TemplateInstance getPost() {
-        return post.instance();
+        var postForm = new PostForm();
+        return post.data("postForm", postForm);
     }
 
     @POST

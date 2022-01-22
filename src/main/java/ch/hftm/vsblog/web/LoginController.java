@@ -34,7 +34,8 @@ public class LoginController {
     @GET
     @Path("login")
     public TemplateInstance getLogin() {
-        return login.instance();
+        var loginForm = new LoginForm();
+        return login.data("loginForm",loginForm);
     }
 
     @POST
