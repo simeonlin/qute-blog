@@ -9,7 +9,6 @@
 ## Open Topics:  
 - [ ] Optimization of form-validation.
 - [ ] Using Unpoly and Tailwind CSS via webjars instead of CDN?
-- [ ] Expired JWT is not removed from Cookies. (Check following Discussion for Hints to fix: https://groups.google.com/g/quarkus-dev/c/voY2Hch5IgI)
 
 ## Setup of the Keys for the JWT Part
 To test the application you need a key-pair for the authentification with the JWT-session-token.

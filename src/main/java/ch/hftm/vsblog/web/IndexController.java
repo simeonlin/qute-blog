@@ -1,6 +1,5 @@
 package ch.hftm.vsblog.web;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;

@@ -6,6 +6,8 @@ import javax.inject.Named;
 
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
+import io.quarkus.security.AuthenticationFailedException;
+
 @RequestScoped
 @Named("loginInfo")
 public class LoginInfo {
@@ -13,9 +15,15 @@ public class LoginInfo {
     JsonWebToken token;
 
     public boolean isLoggedIn() {
-        if(token.getGroups() != null && token.getGroups().size() > 0) {
-            return true;
+        try {
+            if(token.getGroups() != null && token.getGroups().size() > 0) {
+                return true;
+            }
+            return false;
+        } catch (AuthenticationFailedException e) {
+            // TODO: Why is the Exception not catched in Handler?
+            return false;
         }
-        return false;
+        
     }
 }
