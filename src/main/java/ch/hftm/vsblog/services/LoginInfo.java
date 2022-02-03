@@ -1,4 +1,4 @@
-package ch.hftm.vsblog.web;
+package ch.hftm.vsblog.services;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

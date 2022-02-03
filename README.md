@@ -1,14 +1,23 @@
-# Simple Blog Showcase with Quarkus Qute
+# Simple Blog Showcase with Quarkus Renarde with Qute, Unpoly and Tailwind CSS
 ![](example.gif)
 
 ## Including
 - Responsive layout with Tailwind CSS
 - Optimized UX with Unpoly (for partial page-loads)
-- Authentication and authorization with a JWT-session-token
+- Simple Auth-Example with a JWT in a http-only Cookie
 
 ## Open Topics:  
-- [ ] Optimization of form-validation.
-- [ ] Include Tailwind CSS instead of CDN
+- [ ] Test one-field form-validation with up-validate.
+- [ ] DB from dev-services.
+- [ ] Include Tailwind CSS in project instead of CDN
+- [ ] Optimize paths in template (pages from subfolders are not loading images)
+- [ ] Doc: Tailwind and Unpoly including, form-validation with unpoly, search on tipping with unpoly
+
+## Issues with Renarde:  
+- [ ] WARNING: duplicate route registered for Post.post ?
+- [ ] ifError and Error not working directly ({#ifError it='title'})
+- [ ] Why is @Blocking necessary?
+- [ ] Include Qute-Extenstion -> Error
 
 ## Setup of the Keys for the JWT Part
 To test the application you need a key-pair for the authentification with the JWT-session-token.
@@ -28,3 +37,5 @@ http://localhost:8080
     docker-compose up --build
 
 http://localhost
+
+

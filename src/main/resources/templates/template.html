@@ -29,7 +29,7 @@
         <div class="container w-full mx-auto px-6 py-4">
         <nav class="flex items-center justify-between flex-wrap">
             <div class="flex items-center flex-shrink-0 mr-6">
-                <h1 class="logo text-2xl"><a href="index.html">VS Blog</a></h1>
+                <h1 class="logo text-2xl"><a href="{uri:Application.index()}">VS Blog</a></h1>
             </div>
             <div class="block lg:hidden">
               <button id="hamburgerbtn" class="flex items-center px-3 py-2 border rounded hover:border-gray-600">
@@ -38,12 +38,12 @@
             </div>
             <div id="mobileMenu" class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
               <div class="lg:flex-grow">
-                {#if inject:loginInfo.loggedIn}<a href="post" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Write</a>{/if}
-                <a href="about" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
-                {#if inject:loginInfo.loggedIn}<a href="logout" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="login" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
+                {#if inject:loginInfo.loggedIn}<a href="{uri:Post.post()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Write</a>{/if}
+                <a href="{uri:Application.about()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
+                {#if inject:loginInfo.loggedIn}<a href="{uri:Login.logout()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="{uri:Login.login()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
               </div>
               <div>
-                <form method="GET" action="/index.html" up-target=".main-content" up-autosubmit>
+                <form method="GET" action="{uri:Application.index()}" up-target=".main-content" up-autosubmit>
                   <input type="search" name="searchString" class="shadow appearance-none border rounded py-2 my-2 px-2 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Suchen">
                 </form>
               </div>
@@ -53,13 +53,19 @@
     </header>
     <div class="h-64 bg-cover" style="background-image: url('assets/feature.jpg')"></div>
     <div class="main-content container w-full mx-auto px-6">
+        {#if flash:message}
+                <div class="alert alert-{flash:messageType ?: 'success'}">
+                    {flash:message}
+                </div>
+            {/if}
+            {#insert /}
         {#insert contents}No contents!{/}
     </div>
 
     <footer style="background-color: #3b3b3b;" class="mt-10 border-t border-grey-light">
             <div class="container w-full mx-auto px-6 py-8">
                 <p style="color: #f8f8f8; text-align: right;" class="py-4 text-grey-dark text-sm">
-                    &copy; 2020 by Simeon
+                    &copy; 2022 by Simeon
                 </p>
         </div>
     </footer>

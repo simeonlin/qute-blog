@@ -1,37 +1,34 @@
-package ch.hftm.vsblog.web;
+package ch.hftm.vsblog.controllers;
 
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 
 import ch.hftm.vsblog.model.Entry;
+import io.quarkiverse.renarde.Controller;
 import io.quarkus.panache.common.Sort;
 import io.quarkus.panache.common.Sort.Direction;
-import io.quarkus.qute.Template;
+import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
+import io.smallrye.common.annotation.Blocking;
 
 @Path("/")
-@Produces(MediaType.TEXT_HTML)
-@RequestScoped
-public class IndexController {
+@Blocking
+public class Application extends Controller {
 
-    @Inject
-    Template index;
+    @CheckedTemplate
+    static class Templates {
+        public static native TemplateInstance index(List<Entry> entries);
+        public static native TemplateInstance about();
+    }
 
-    @Inject
-    Template about;
-
+    @Path("/")
     @GET
-    @Path("{a: |index.html}")
-    public TemplateInstance getIndex(@QueryParam("searchString") String searchString) {
+    public TemplateInstance index(@QueryParam("searchString") String searchString) {
         List<Entry> entries;
         if(searchString == null || searchString.isEmpty()) {
             entries = Entry.listAll(Sort.by("id", Direction.Descending));
@@ -39,12 +36,11 @@ public class IndexController {
             entries = Entry.list("title LIKE ?1 OR content LIKE ?1", Sort.by("id", Direction.Descending),"%"+searchString+"%");
         }
 
-        return index.data("entries", entries);
+        return Templates.index(entries);
     }
 
     @GET
-    @Path("about")
-    public TemplateInstance getAbout(@Context SecurityContext ctx) {
-        return about.instance();
+    public TemplateInstance about(@Context SecurityContext ctx) {
+        return Templates.about();
     }
 }

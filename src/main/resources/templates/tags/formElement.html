@@ -1,0 +1,10 @@
+<div class="mb-6">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="{id}">
+        {label}
+    </label>
+    {#ifError it=id}
+            <p class="text-red-500 text-xs italic">{#error it=id/}</p>
+    {/ifError}
+    {nested-content}
+</div>
+            

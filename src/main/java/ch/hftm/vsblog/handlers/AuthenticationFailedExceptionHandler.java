@@ -1,4 +1,4 @@
-package ch.hftm.vsblog.web.util;
+package ch.hftm.vsblog.handlers;
 
 import javax.annotation.Priority;
 import javax.ws.rs.core.NewCookie;
@@ -16,6 +16,7 @@ public class AuthenticationFailedExceptionHandler implements ExceptionMapper<Aut
     @Override
     public Response toResponse(AuthenticationFailedException exception) {
         NewCookie removeCookie = new NewCookie("Authorization", null, "/", null, null, 0, false, true);
+        //TODO: Get Path with Renarde?
         return Response.temporaryRedirect(UriBuilder.fromUri("/login").build()).cookie(removeCookie).build();
     }
 }
