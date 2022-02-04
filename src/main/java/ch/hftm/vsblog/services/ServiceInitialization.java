@@ -2,16 +2,23 @@ package ch.hftm.vsblog.services;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import ch.hftm.vsblog.model.Entry;
 import io.quarkus.runtime.StartupEvent;
 
 @Dependent
-public class DataInitialization {
+public class ServiceInitialization {
+
+    @Inject
+    KeyPairGenerator keyGenerator;
 
     @Transactional
     public void intializeData(@Observes StartupEvent event) {
+        // Ensure that there is a Keypair around
+        keyGenerator.generateKeys();
+        
         if (Entry.listAll().size() < 1) {
             var e1 = new Entry();
             e1.title = "Modern Java Backend with Quarkus";

@@ -20,8 +20,8 @@
 - [ ] Include Qute-Extenstion -> Error
 
 ## Setup of the Keys for the JWT Part
-To test the application you need a key-pair for the authentification with the JWT-session-token.
-For this you can for example once Start the KeyGeneratorHelper-Class.
+During the Start of the Service, a key-pair for the authentification with the JWT-session-token is generated.
+Don't use this approach in productive Environment with scaling.
 
 ## Start in Dev-Mode
 To get the app running you need a MYSQL-Database. You can 
@@ -38,4 +38,10 @@ http://localhost:8080
 
 http://localhost
 
+# How to use Tailwind in a Quarkus-Renarde Project  
 
+First
+
+    
+
+    npx tailwindcss -i ./src/main/resources/style.scss -o ./src/main/resources/META-INF/resources/css/generated-tailwind.css
