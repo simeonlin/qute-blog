@@ -38,10 +38,14 @@ http://localhost:8080
 
 http://localhost
 
-# How to use Tailwind in a Quarkus-Renarde Project  
+# How to use Tailwind CSS in a Quarkus-Renarde Project  
 
-First
+Install the Tailwind CLI over npm and execute a `init` according https://tailwindcss.com/docs/installation.  
+Create a main-CSS file for example in `/src/main/resources/style.css` with the Tailwind directives and the style-definitions you like.  
+Then you can build your CSS with the following command:
 
-    
+    npx tailwindcss -i ./src/main/resources/style.css -o ./src/main/resources/META-INF/resources/css/generated-tailwind.css
 
-    npx tailwindcss -i ./src/main/resources/style.scss -o ./src/main/resources/META-INF/resources/css/generated-tailwind.css
+Integrate the CSS in your templates like this:
+
+    <link href="/css/generated-tailwind.css" rel="stylesheet">
