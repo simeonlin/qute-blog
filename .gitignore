@@ -39,5 +39,5 @@ nb-configuration.xml
 .env
 
 # Project-Specific
-src/main/resources/META-INF/jwt.key
-src/main/resources/META-INF/jwt.pub
+META-INF/jwt.key
+META-INF/jwt.pub
