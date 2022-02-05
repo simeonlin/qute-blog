@@ -3,7 +3,7 @@
 {#contents}
 {#for entry in entries}
     <article class="container pt-20">
-        <h1 class="text-4xl">{entry.title}</h1>
+        <h1>{entry.title}</h1>
         <p>by {entry.author}</p>
         <p class="my-2">{entry.content}</p>
         <div class="block">
@@ -14,8 +14,7 @@
             </p>
         </div>
 
-        <!--Divider-->
-        <hr class="border-b-2 border-grey-light my-10 mx-4">
+        <hr class="divider">
     </article>
 {/for}
 {/contents}

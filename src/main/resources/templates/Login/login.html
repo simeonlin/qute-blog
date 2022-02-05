@@ -1,28 +1,23 @@
 {#include template.html}
 {#contents}
 <div class="logindiv container pt-20">
-    <h1 class="text-4xl">Login</h1>
+    <h1>Login</h1>
     <p class="my-2">Enter your credentials:</p>
     <form action="{uri:Login.login()}" method="POST" name="loginForm" up-target=".logindiv">
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            <label class="lbl" for="username">
                 User
             </label>
-            <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username" name="username" type="text" placeholder="User" required autofocus>
+            <input class="inp" id="username" name="username" type="text" placeholder="User" required autofocus>
         </div>
         <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            <label class="lbl" for="password">
                 Password
             </label>
-            <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="password" name="password" type="password" placeholder="Password" required>
+            <input class="inp" id="password" name="password" type="password" placeholder="Password" required>
         </div>
         <div class="flex items-center justify-between">
-            <button type="submit"
-                class="float-right btn">
+            <button type="submit" class="float-right btn">
                 Enter
             </button>
         </div>

@@ -22,8 +22,16 @@
 
 .lbl {
   @apply block text-gray-700 text-sm font-bold mb-2;
-}
+} 
+
+.err {
+  @apply text-red-500 text-xs italic;
+} 
 
 .inp {
-  @apply shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-400; 
+  @apply w-full shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-400;
+}
+
+.divider {
+  @apply border-b-2 border-gray-300 my-10 mx-4;
 }

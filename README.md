@@ -9,12 +9,16 @@
 ## Open Topics:  
 - [ ] Test one-field form-validation with up-validate.
 - [ ] DB from dev-services.
-- [ ] Include Tailwind CSS in project instead of CDN
+- [ ] Theme and Coloring Handling with tailwind css.
 - [ ] Optimize paths in template (pages from subfolders are not loading images)
 - [ ] Doc: Tailwind and Unpoly including, form-validation with unpoly, search on tipping with unpoly
 
-## Issues with Renarde:  
+## Warnings with Renarde:  
 - [ ] WARNING: duplicate route registered for Post.post ?
+- [ ] WARN Quarkus detected the use of JSON in JAX-RS method 'ch.hftm.vsblog.controllers.Login#login' but no JSON extension has been added.
+- [ ] Unrecognized configuration key "quarkus.oidc.******.authentication.force-redirect-https-scheme" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+
+## Issues with Renarde:  
 - [ ] ifError and Error not working directly ({#ifError it='title'})
 - [ ] Why is @Blocking necessary?
 - [ ] Include Qute-Extenstion -> Error

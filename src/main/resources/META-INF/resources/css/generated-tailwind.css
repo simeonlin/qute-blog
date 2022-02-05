@@ -32284,7 +32284,6 @@ h2 {
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgba(31, 41, 55, var(--tw-text-opacity));
-  /* @apply bg-transparent border border-grey text-xs text-grey font-bold py-2 px-4 rounded-full; */
 }
 
 .lbl {
@@ -32297,7 +32296,16 @@ h2 {
   color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 
+.err {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-style: italic;
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
 .inp {
+  width: 100%;
   border-radius: 0.25rem;
   border-width: 1px;
 }
@@ -32322,6 +32330,16 @@ h2 {
 .inp:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.divider {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
 }
 
 @media (min-width: 640px) {
