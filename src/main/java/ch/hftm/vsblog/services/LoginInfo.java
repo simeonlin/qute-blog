@@ -21,7 +21,7 @@ public class LoginInfo {
             }
             return false;
         } catch (AuthenticationFailedException e) {
-            // TODO: Why is the Exception not catched in Handler?
+            // Exception not catched during injection from qute-template
             return false;
         }
         

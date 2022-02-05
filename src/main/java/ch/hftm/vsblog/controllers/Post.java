@@ -5,8 +5,10 @@ import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
 
@@ -18,8 +20,9 @@ import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
 import io.smallrye.common.annotation.Blocking;
 
-@Blocking
 @Path("/")
+@Produces(MediaType.TEXT_HTML)
+@Blocking
 public class Post extends Controller {
 
     @CheckedTemplate(requireTypeSafeExpressions = false)
@@ -53,7 +56,6 @@ public class Post extends Controller {
             e.author = ctx.getUserPrincipal().getName();
             e.persist();
 
-            // TODO Show Info in Header for added Blog nicely via template
             flash("message", "Blog-Post added!");
             redirect(Application.class).index("");
         }

@@ -4,14 +4,13 @@
 ## Including
 - Responsive layout with Tailwind CSS
 - Optimized UX with Unpoly (for partial page-loads)
-- Simple Auth-Example with a JWT in a http-only Cookie
+- Simple Auth-Example with a JWT in a http-only Cookie (not from Renarde)
 
 ## Open Topics:  
 - [ ] Test one-field form-validation with up-validate.
-- [ ] DB from dev-services.
 - [ ] Theme and Coloring Handling with tailwind css.
 - [ ] Optimize paths in template (pages from subfolders are not loading images)
-- [ ] Doc: Tailwind and Unpoly including, form-validation with unpoly, search on tipping with unpoly
+- [ ] Doc: Unpoly including, form-validation with unpoly, search on tipping with unpoly
 
 ## Warnings with Renarde:  
 - [ ] WARNING: duplicate route registered for Post.post ?
@@ -28,19 +27,11 @@ During the Start of the Service, a key-pair for the authentification with the JW
 Don't use this approach in productive Environment with scaling.
 
 ## Start in Dev-Mode
-To get the app running you need a MYSQL-Database. You can 
+To get the app running in dev-mode, simply execute: 
 
-    docker run --name qute-blog-mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=vs4tw -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=dbuser -e MYSQL_DATABASE=qute-blog -d mysql:5.7.28
     ./mvnw quarkus:dev
 
 http://localhost:8080
-
-## Or start with docker-compose
-
-    ./mvnw clean package
-    docker-compose up --build
-
-http://localhost
 
 # How to use Tailwind CSS in a Quarkus-Renarde Project  
 
