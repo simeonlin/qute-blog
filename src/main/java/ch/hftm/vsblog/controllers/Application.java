@@ -42,6 +42,7 @@ public class Application extends Controller {
         return Templates.index(entries);
     }
 
+    @Path("/mytest/path/about")
     @GET
     public TemplateInstance about(@Context SecurityContext ctx) {
         return Templates.about();

@@ -51,7 +51,7 @@
           </nav>
         </div>
     </header>
-    <div class="h-64 bg-cover" style="background-image: url('assets/feature.jpg')"></div>
+    <div class="h-64 bg-cover" style="background-image: url('{uri:Application.index()}assets/feature.jpg')"></div>
     <div class="main-content container w-full mx-auto px-6">
         {#if flash:message}
             <div class="p-4 mt-4 text-sm rounded-md {flash:messageType.equals('warn') ? 'tex bg-red-100' : 'bg-gray-200'}" role="alert">

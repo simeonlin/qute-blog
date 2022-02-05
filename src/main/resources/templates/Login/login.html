@@ -2,20 +2,20 @@
 {#contents}
 <div class="logindiv container pt-20">
     <h1>Login</h1>
+    {#if flash:message}
+    <div class="p-4 mt-4 text-sm rounded-md {flash:messageType.equals('warn') ? 'tex bg-red-100' : 'bg-gray-200'}"
+        role="alert">
+        <strong class="font-bold">{flash:messageType.equals('warn') ? 'WARNING:' : 'INFO:'}</strong> {flash:message}
+    </div>
+    {/if}
     <p class="my-2">Enter your credentials:</p>
-    <form action="{uri:Login.login()}" method="POST" name="loginForm" up-target=".logindiv">
-        <div class="mb-4">
-            <label class="lbl" for="username">
-                User
-            </label>
-            <input class="inp" id="username" name="username" type="text" placeholder="User" required autofocus>
-        </div>
-        <div class="mb-6">
-            <label class="lbl" for="password">
-                Password
-            </label>
-            <input class="inp" id="password" name="password" type="password" placeholder="Password" required>
-        </div>
+    <form action="{uri:Login.loginrequest()}" method="POST" name="loginForm" up-target=".logindiv">
+        {#formElement id="username" label="username"}
+            {#input id="username" label="User" validate="required autofocus"/}
+        {/formElement}
+        {#formElement id="password" label="password"}
+            {#input id="password" label="Password" validate="required" type="password"/}
+        {/formElement}
         <div class="flex items-center justify-between">
             <button type="submit" class="float-right btn">
                 Enter
