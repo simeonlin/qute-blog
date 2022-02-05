@@ -5,10 +5,10 @@
     <p class="my-2">Let's go! Write your wonderfull new blog-post.</p>
     <form action="{uri:Post.post()}" method="POST" name="postForm" up-target=".postdiv">
         {#formElement id="title" label="Title"}
-            {#input id="title" label="Title" validate="required autofocus"/}
+            {#input id="title" label="Title" validate="up-validate"/}
         {/formElement}
         {#formElement id="content" label="Content"}
-            {#textarea id="content" label="Content" validate="required" rows="5"/}
+            {#textarea id="content" label="Content" validate="up-validate" rows="5"/}
         {/formElement}
         <div class="flex items-center justify-between">
             <button type="submit"

@@ -7,10 +7,8 @@
 - Simple Auth-Example with a JWT in a http-only Cookie (not from Renarde)
 
 ## Open Topics:  
-- [ ] Test one-field form-validation with up-validate.
-- [ ] Theme and Coloring Handling with tailwind css.
-- [ ] Optimize paths in template (pages from subfolders are not loading images)
-- [ ] Doc: Unpoly including, form-validation with unpoly, search on tipping with unpoly
+- [ ] one-field form-validation with up-validate: Textfield looses value if validation succeeds
+- [ ] Doc: Unpoly including, form-validation with unpoly, search on tipping with unpoly, modal, ..
 
 ## Warnings with Renarde:  
 - [ ] WARNING: duplicate route registered for Post.post ?

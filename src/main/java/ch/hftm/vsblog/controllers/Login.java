@@ -6,12 +6,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 import org.jboss.resteasy.reactive.RestForm;
 
@@ -38,7 +35,7 @@ public class Login extends Controller {
     }
 
     @POST
-    public Response loginrequest(@RestForm String username, @RestForm String password, @Context UriInfo uriInfo, @Context HttpHeaders headers) {
+    public Response loginrequest(@RestForm String username, @RestForm String password) {
         if(username.equals("admin") && password.equals("admin")) {
             // Create a httpOnly-Cookie with the JWT
             NewCookie cookie = new NewCookie("Authorization", TokenIssuer.generateToken(username), null, null, null, -1, false, true);
@@ -53,7 +50,7 @@ public class Login extends Controller {
     }
 
     @GET
-    public Response logout(@Context UriInfo uriInfo, @Context HttpHeaders headers) {
+    public Response logout() {
         NewCookie removeCookie = new NewCookie("Authorization", null, "/", null, null, 0, false, true);
         URI uri = Router.getURI(Application::index, "");
         return Response.seeOther(uri).cookie(removeCookie).build();

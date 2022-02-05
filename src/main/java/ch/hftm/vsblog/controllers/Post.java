@@ -3,14 +3,13 @@ package ch.hftm.vsblog.controllers;
 import javax.annotation.security.RolesAllowed;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
-import javax.ws.rs.core.UriInfo;
 
 import org.jboss.resteasy.reactive.RestForm;
 
@@ -39,7 +38,7 @@ public class Post extends Controller {
     @POST
     @RolesAllowed("admin")
     @Transactional
-    public void post(@RestForm String title, @RestForm String content,  @Context UriInfo uriInfo, @Context HttpHeaders headers, @Context SecurityContext ctx) {
+    public void post(@RestForm String title, @RestForm String content, @HeaderParam("X-Up-Validate") String validate, @Context SecurityContext ctx) {
         if(title.length() < 5) {
             validation.addError("title", "Minimum 5 Chars are required.");
         }
@@ -47,7 +46,8 @@ public class Post extends Controller {
             validation.addError("content", "Minimum 10 Chars are required.");
         }
 
-        if (validationFailed()) {
+        // Don't save Entry if validation failed or if the request was for validation only
+        if (validationFailed() || !validate.isBlank()) {
             post();
         } else {
             var e = new Entry();
