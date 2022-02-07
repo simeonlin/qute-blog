@@ -1,4 +1,4 @@
-# Simple Blog Showcase with Quarkus Renarde with Qute, Unpoly and Tailwind CSS
+# Simple Blog Showcase of Quarkus Renarde with Qute, Unpoly and Tailwind CSS
 
 ## Including
 - Responsive layout with Tailwind CSS
@@ -35,17 +35,17 @@ Add unpoly to your template:
 
 ### Small examples of the power of unpoly in this project  
 #### Validate a form without reloading the hole page  
-Add a selector in **up-target** for selecting the DOM-Part which you want to update: (found in `src\main\resources\templates\Login\login.html`)
+Add a selector in **up-target** for selecting the DOM-Part which you want to update: (example found in `src\main\resources\templates\Login\login.html`)
 ```html
     <form action="{uri:Login.loginrequest()}" method="POST" name="loginForm" up-target=".logindiv">
         ...
     </form>
 ```
 
-#### Search on tiping:  
+#### Search on typing:  
 ![](example-search.gif)  
 
-Just add **up-autosubmit**:  (found in `src\main\resources\templates\template.html`)
+Just add **up-autosubmit**:  (example found in `src\main\resources\templates\template.html`)
 ```html
     <form method="GET" action="{uri:Application.index()}" up-target=".main-content" up-autosubmit>
         <input type="search" name="searchString" class="inp" placeholder="Search..">
