@@ -7,7 +7,6 @@
 - Simple Auth-Example with a JWT in a http-only Cookie (not from Renarde)
 
 ## Open Topics:  
-- [ ] one-field form-validation with up-validate: Textfield looses value if validation succeeds
 - [ ] Doc: Unpoly including: form-validation with unpoly, search on tipping with unpoly, modal, ..
 
 ## Warnings with Renarde:  
@@ -22,11 +21,11 @@
 
 ## Setup of the Keys for the JWT Part
 During the Start of the Service, a key-pair for the authentification with the JWT-session-token is generated.
-Don't use this approach in productive Environment with scaling.
+Don't use this approach in productive Environment with scaling. :-)
 
 ## Start in Dev-Mode
 To get the app running in dev-mode, simply execute:
-(Warning: Special Quarkus-Branch for Renard should be builded according https://github.com/quarkiverse/quarkus-renarde) 
+(**Warning**: Special Quarkus-Branch and Quarkus Renard should be builded according https://github.com/quarkiverse/quarkus-renarde) 
 
     ./mvnw quarkus:dev
 

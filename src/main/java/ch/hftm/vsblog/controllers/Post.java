@@ -45,9 +45,12 @@ public class Post extends Controller {
         if (content.length() < 10) {
             validation.addError("content", "Minimum 10 Chars are required.");
         }
+        if((validate!= null && !validate.isBlank())) {
+            // If it was only a validation request: Make a fake-error to ensure that the form keeps its state
+            validation.addError("fake", "fake");
+        }
 
-        // Don't save Entry if validation failed or if the request was for validation only
-        if (validationFailed() || (validate!= null && !validate.isBlank())) {
+        if (validationFailed()) {
             post();
         } else {
             var e = new Entry();
