@@ -19,36 +19,46 @@ http://localhost:8080
 
 ## How to use Unpoly in a Quarkus-Renarde Project  
 Add unpoly-Dependency from webjars:  
+```xml
     <dependency>
         <groupId>org.webjars.npm</groupId>
         <artifactId>unpoly</artifactId>
         <version>0.62.1</version>
     </dependency>
-  
+```
+
 Add unpoly to your template:  
+```html
     <script src="/webjars/unpoly/0.62.1/dist/unpoly.min.js"></script>
     <link rel="stylesheet" href="/webjars/unpoly/0.62.1/dist/unpoly.min.css">
-  
+```
+
 ### Small examples of the power of unpoly in this project  
 #### Validate a form without reloading the hole page  
 Add a selector in **up-target** for selecting the DOM-Part which you want to update: (found in `src\main\resources\templates\Login\login.html`)
+```html
     <form action="{uri:Login.loginrequest()}" method="POST" name="loginForm" up-target=".logindiv">
         ...
     </form>
+```
 
 #### Search on tiping:  
 ![](example-search.gif)  
 
 Just add **up-autosubmit**:  (found in `src\main\resources\templates\template.html`)
+```html
     <form method="GET" action="{uri:Application.index()}" up-target=".main-content" up-autosubmit>
         <input type="search" name="searchString" class="inp" placeholder="Search..">
     </form>
+```
 
 #### Validate one single form-element after leaving it  
 ![](example-validation.gif)  
 
 Just add **up-validate** to your form-element:  
+```html
     <input class="inp" id="title" name="title" type="text" placeholder="Title" up-validate>
+```
 
 Ensure that you handle the **X-Up-Validate** header-param in your controller!
 
@@ -62,5 +72,7 @@ Then you can build your CSS with the following command:
     npx tailwindcss -i ./src/main/resources/style.css -o ./src/main/resources/META-INF/resources/css/generated-tailwind.css
 
 Integrate the CSS in your templates like this:
-
+```html
     <link href="/css/generated-tailwind.css" rel="stylesheet">
+```
+  
