@@ -1,23 +1,9 @@
 # Simple Blog Showcase with Quarkus Renarde with Qute, Unpoly and Tailwind CSS
-![](example.gif)
 
 ## Including
 - Responsive layout with Tailwind CSS
 - Optimized UX with Unpoly (for partial page-loads)
 - Simple Auth-Example with a JWT in a http-only Cookie (not from Renarde)
-
-## Open Topics:  
-- [ ] Doc: Unpoly including: form-validation with unpoly, search on tipping with unpoly, modal, ..
-
-## Warnings with Renarde:  
-- [ ] WARNING: duplicate route registered for Post.post ?
-- [ ] WARN Quarkus detected the use of JSON in JAX-RS method 'ch.hftm.vsblog.controllers.Login#login' but no JSON extension has been added.
-- [ ] Unrecognized configuration key "quarkus.oidc.******.authentication.force-redirect-https-scheme" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-
-## Issues with Renarde:  
-- [ ] ifError and Error not working directly ({#ifError it='title'})
-- [ ] Why is @Blocking necessary?
-- [ ] Include Qute-Extenstion -> Error
 
 ## Setup of the Keys for the JWT Part
 During the Start of the Service, a key-pair for the authentification with the JWT-session-token is generated.
@@ -30,6 +16,42 @@ To get the app running in dev-mode, simply execute:
     ./mvnw quarkus:dev
 
 http://localhost:8080
+
+## How to use Unpoly in a Quarkus-Renarde Project  
+Add unpoly-Dependency from webjars:  
+    <dependency>
+        <groupId>org.webjars.npm</groupId>
+        <artifactId>unpoly</artifactId>
+        <version>0.62.1</version>
+    </dependency>
+  
+Add unpoly to your template:  
+    <script src="/webjars/unpoly/0.62.1/dist/unpoly.min.js"></script>
+    <link rel="stylesheet" href="/webjars/unpoly/0.62.1/dist/unpoly.min.css">
+  
+### Small examples of the power of unpoly in this project  
+#### Validate a form without reloading the hole page  
+Add a selector in **up-target** for selecting the DOM-Part which you want to update: (found in `src\main\resources\templates\Login\login.html`)
+    <form action="{uri:Login.loginrequest()}" method="POST" name="loginForm" up-target=".logindiv">
+        ...
+    </form>
+
+#### Search on tiping:  
+![](example-search.gif)  
+
+Just add **up-autosubmit**:  (found in `src\main\resources\templates\template.html`)
+    <form method="GET" action="{uri:Application.index()}" up-target=".main-content" up-autosubmit>
+        <input type="search" name="searchString" class="inp" placeholder="Search..">
+    </form>
+
+#### Validate one single form-element after leaving it  
+![](example-validation.gif)  
+
+Just add **up-validate** to your form-element:  
+    <input class="inp" id="title" name="title" type="text" placeholder="Title" up-validate>
+
+Ensure that you handle the **X-Up-Validate** header-param in your controller!
+
 
 ## How to use Tailwind CSS in a Quarkus-Renarde Project  
 

@@ -4,7 +4,6 @@
 <head>
     <title>{#insert title}VS Blog{/}</title>
     <link href="/css/generated-tailwind.css" rel="stylesheet">
-    <script src="/webjars/unpoly/0.62.1/dist/unpoly.min.js"></script>
     <link rel="stylesheet" href="/webjars/unpoly/0.62.1/dist/unpoly.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Montserrat:wght@100;400;500;600;800&display=swap"
@@ -78,12 +77,15 @@
             </p>
         </div>
     </footer>
+    
+    <script src="/webjars/unpoly/0.62.1/dist/unpoly.min.js"></script>
     <script>
-        let btn = document.getElementById('hamburgerbtn');
-        let mobileMenu = document.getElementById('mobileMenu');
-        btn.addEventListener('click', function () {
-            mobileMenu.classList.toggle('active');
-        });
+        up.compiler('#hamburgerbtn', function(btn) {
+            let mobileMenu = document.getElementById('mobileMenu');
+            btn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+            });
+        })
     </script>
 </body>
 
