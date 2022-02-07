@@ -47,7 +47,7 @@ public class Post extends Controller {
         }
 
         // Don't save Entry if validation failed or if the request was for validation only
-        if (validationFailed() || !validate.isBlank()) {
+        if (validationFailed() || (validate!= null && !validate.isBlank())) {
             post();
         } else {
             var e = new Entry();

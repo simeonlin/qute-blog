@@ -18,7 +18,7 @@
             font-family: 'DM Serif Text', serif;
         }
 
-        .active{
+        .active {
             display: block;
         }
     </style>
@@ -27,54 +27,63 @@
 <body>
     <header class="sticky top-0" style="background-color: #f8f8f8;">
         <div class="container w-full mx-auto px-6 py-4">
-        <nav class="flex items-center justify-between flex-wrap">
-            <div class="flex items-center flex-shrink-0 mr-6">
-                <h1 class="logo text-2xl"><a href="{uri:Application.index()}">VS Blog</a></h1>
-            </div>
-            <div class="block lg:hidden">
-              <button id="hamburgerbtn" class="flex items-center px-3 py-2 border rounded hover:border-gray-600">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-              </button>
-            </div>
-            <div id="mobileMenu" class="hidden lg:flex w-full flex-grow lg:items-center lg:w-auto ">
-              <div class="lg:flex-grow">
-                {#if inject:loginInfo.loggedIn}<a href="{uri:Post.post()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Write</a>{/if}
-                <a href="{uri:Application.about()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
-                {#if inject:loginInfo.loggedIn}<a href="{uri:Login.logout()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a href="{uri:Login.login()}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
-              </div>
-              <div>
-                <form method="GET" action="{uri:Application.index()}" up-target=".main-content" up-autosubmit>
-                  <input type="search" name="searchString" class="inp my-2 px-2 text-sm focus:shadow-outline" placeholder="Search..">
-                </form>
-              </div>
-            </div>
-          </nav>
+            <nav class="flex items-center justify-between flex-wrap">
+                <div class="flex items-center flex-shrink-0 mr-6">
+                    <h1 class="logo text-2xl"><a href="{uri:Application.index()}">VS Blog</a></h1>
+                </div>
+                <div class="block lg:hidden">
+                    <button id="hamburgerbtn" class="flex items-center px-3 py-2 border rounded hover:border-gray-600">
+                        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <title>Menu</title>
+                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobileMenu" class="hidden lg:flex w-full flex-grow lg:items-center lg:w-auto ">
+                    <div class="lg:flex-grow">
+                        {#if inject:loginInfo.loggedIn}<a href="{uri:Post.post()}"
+                            class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Write</a>{/if}
+                        <a href="{uri:Application.about()}"
+                            class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">About</a>
+                        {#if inject:loginInfo.loggedIn}<a href="{uri:Login.logout()}"
+                            class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Logout</a>{#else}<a
+                            href="{uri:Login.login()}"
+                            class="block mt-4 lg:inline-block lg:mt-0 hover:text-blue-800 mr-4">Login</a>{/if}
+                    </div>
+                    <div>
+                        <form method="GET" action="{uri:Application.index()}" up-target=".main-content" up-autosubmit>
+                            <input type="search" name="searchString" class="inp my-2 px-2 text-sm focus:shadow-outline"
+                                placeholder="Search..">
+                        </form>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
     <div class="h-64 bg-cover" style="background-image: url('{uri:Application.index()}assets/feature.jpg')"></div>
     <div class="main-content container w-full mx-auto px-6">
         {#if flash:message}
-            <div class="p-4 mt-4 text-sm rounded-md {flash:messageType.equals('warn') ? 'tex bg-red-100' : 'bg-gray-200'}" role="alert">
-                <strong class="font-bold">{flash:messageType.equals('warn') ? 'WARNING:' : 'INFO:'}</strong> {flash:message}
-            </div>
+        <div class="p-4 mt-4 text-sm rounded-md {flash:messageType.equals('warn') ? 'tex bg-red-100' : 'bg-gray-200'}"
+            role="alert">
+            <strong class="font-bold">{flash:messageType.equals('warn') ? 'WARNING:' : 'INFO:'}</strong> {flash:message}
+        </div>
         {/if}
         {#insert contents}No contents!{/}
     </div>
 
     <footer style="background-color: #3b3b3b;" class="mt-10 border-t border-grey-light">
-            <div class="container w-full mx-auto px-6 py-8">
-                <p style="color: #f8f8f8; text-align: right;" class="py-4 text-grey-dark text-sm">
-                    &copy; 2022 by Simeon
-                </p>
+        <div class="container w-full mx-auto px-6 py-8">
+            <p style="color: #f8f8f8; text-align: right;" class="py-4 text-grey-dark text-sm">
+                &copy; 2022 by Simeon
+            </p>
         </div>
     </footer>
     <script>
-        up.compiler('#hamburgerbtn', function(btn) {
-            let mobileMenu = document.getElementById('mobileMenu');
-            btn.addEventListener('click', function () {
-                mobileMenu.classList.toggle('active');
-            });
-        })
+        let btn = document.getElementById('hamburgerbtn');
+        let mobileMenu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active');
+        });
     </script>
 </body>
 

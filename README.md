@@ -8,7 +8,7 @@
 
 ## Open Topics:  
 - [ ] one-field form-validation with up-validate: Textfield looses value if validation succeeds
-- [ ] Doc: Unpoly including, form-validation with unpoly, search on tipping with unpoly, modal, ..
+- [ ] Doc: Unpoly including: form-validation with unpoly, search on tipping with unpoly, modal, ..
 
 ## Warnings with Renarde:  
 - [ ] WARNING: duplicate route registered for Post.post ?
@@ -25,13 +25,14 @@ During the Start of the Service, a key-pair for the authentification with the JW
 Don't use this approach in productive Environment with scaling.
 
 ## Start in Dev-Mode
-To get the app running in dev-mode, simply execute: 
+To get the app running in dev-mode, simply execute:
+(Warning: Special Quarkus-Branch for Renard should be builded according https://github.com/quarkiverse/quarkus-renarde) 
 
     ./mvnw quarkus:dev
 
 http://localhost:8080
 
-# How to use Tailwind CSS in a Quarkus-Renarde Project  
+## How to use Tailwind CSS in a Quarkus-Renarde Project  
 
 Install the Tailwind CLI over npm and execute a `init` according https://tailwindcss.com/docs/installation.  
 Create a main-CSS file for example in `/src/main/resources/style.css` with the Tailwind directives and the style-definitions you like.  
