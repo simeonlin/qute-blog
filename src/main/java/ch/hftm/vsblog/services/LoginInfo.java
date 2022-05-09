@@ -1,12 +1,11 @@
 package ch.hftm.vsblog.services;
 
+import io.quarkus.security.AuthenticationFailedException;
+import org.eclipse.microprofile.jwt.JsonWebToken;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.eclipse.microprofile.jwt.JsonWebToken;
-
-import io.quarkus.security.AuthenticationFailedException;
 
 @RequestScoped
 @Named("loginInfo")
@@ -16,10 +15,7 @@ public class LoginInfo {
 
     public boolean isLoggedIn() {
         try {
-            if(token.getGroups() != null && token.getGroups().size() > 0) {
-                return true;
-            }
-            return false;
+            return token.getGroups() != null && token.getGroups().size() > 0;
         } catch (AuthenticationFailedException e) {
             // Exception not catched during injection from qute-template
             return false;
