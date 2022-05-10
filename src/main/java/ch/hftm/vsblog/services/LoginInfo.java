@@ -17,7 +17,7 @@ public class LoginInfo {
         try {
             return token.getGroups() != null && token.getGroups().size() > 0;
         } catch (AuthenticationFailedException e) {
-            // Exception not catched during injection from qute-template
+            // Exception not caught during injection from qute-template
             return false;
         }
         
