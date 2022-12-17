@@ -11,7 +11,6 @@ Don't use this approach in productive Environment with scaling. :-)
 
 ## Start in Dev-Mode
 To get the app running in dev-mode, simply execute:
-(**Warning**: Special Quarkus-Branch and Quarkus Renard should be builded according https://github.com/quarkiverse/quarkus-renarde) 
 
     ./mvnw quarkus:dev
 
